@@ -4,6 +4,9 @@ let display_input_length = document.querySelector(".password-label h3 span");
 let generate_btn = document.querySelector(".generate-btn");
 let options = document.querySelectorAll(".options input");
 let strength_display = document.querySelector(".strength p");
+let copy_icon=document.querySelector(".display-output span")
+let pass_len = 5;
+let ans;
 
 const capital_characters =
     ['A', 'B', 'C', 'D', 'E', 'F', 'G',
@@ -24,7 +27,6 @@ const symbols =
         ",", ".", "?", "/"];
 
 const indx = [capital_characters, small_characters, numbers, symbols];
-let pass_len = 5;
 
 
 
@@ -50,7 +52,7 @@ generate_btn.addEventListener("click", () => {
 
     console.log(refrence);
 
-    let ans = "";
+    ans = "";
 
     if (!refrence.length) {
         ans += "error : no selections";
@@ -75,6 +77,12 @@ generate_btn.addEventListener("click", () => {
     }
 
 });
+
+
+copy_icon.onclick = () =>
+{
+    navigator.clipboard.writeText(ans);
+}
 
 
 
